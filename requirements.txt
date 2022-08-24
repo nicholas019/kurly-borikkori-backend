@@ -1,0 +1,12 @@
+# requirements.txt
+
+# python==3.9
+Django==4.1
+django-cors-headers==3.13.0
+# mysqlclient==2.1.1
+PyMySQL==1.0.2
+PyJWT==2.4.0
+boto3==1.24.56
+gunicorn==20.0.4
+
+konlpy==0.6.0 # 오류발생시 오라클 JDK 설치
