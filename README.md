@@ -106,7 +106,10 @@
    - recipe_id를 통해 해당 아이디의 상세페이지 반환 기능
    - EndPoint호출시 hit갯수를 하나씩 증가하여 조회수 기능 구현
    - 사용 페이지 : 레시피 상세 페이지
-  
+
+![마켓컬리 레시피상세 앞](https://user-images.githubusercontent.com/103249222/187188896-d1481a75-21cf-4a49-bab3-54a08a85f2b6.gif)
+
+ 
 #### 4. RecipeCommentView API
  - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>/comment
    - 레시피 댓글 조회 기능
@@ -123,6 +126,10 @@
    - 레시피 댓글 삭제 기능
    - 패스파라메터로 들어온 id값으로 데이터 조회 후 삭제 기능
    - 사용 페이지 : 레시피 상세페이지
+
+![마켓컬리 레시피상세 뒤 (1)](https://user-images.githubusercontent.com/103249222/187189155-5345ac8d-0764-47da-b8d0-181ef239619a.gif)
+
+ 
  
 #### 5. ReCommentView API
  - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>/recomment/<int:comment_id>
@@ -135,6 +142,8 @@
    - 레시피 대댓글 등록 기능
    - 레시피 댓글 등록 기능과 동일하지만 다른것은 tag값이 없는것과, parent_comment_id값이 패스파라메터에서 받는 comment_id값을 저장하여 어떤 댓글의 대댓글인지 확인
    - 사용 페이지 : 레시피 상세페이지
+ 
+ 
  
 #### 6. RecipeSimiltude API
  - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>/similtude
@@ -157,6 +166,7 @@
   - UserRe퍋ㅈWrite : 유저가 작성한 후기 리스트 API
   - ProductList : 레시피등록시 레시피에 사용한 마켓컬리 제품 목록 검색을 위한 상품리스트 API  
 
+<img width="1728" alt="디자인-회원페이지- 글 내용" src="https://user-images.githubusercontent.com/103249222/187189191-fe0644be-ae47-4562-81db-d82063e9e610.png">
 
 
 
