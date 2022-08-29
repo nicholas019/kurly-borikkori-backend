@@ -48,7 +48,7 @@
 
 
 
-## 🌼 주 기능 구현 사항 🌼
+## 🌼 핵심 기능 설명 🌼
 
 ### Ricipe APP
 #### 1. RecipeList API
@@ -107,13 +107,54 @@
    - 사용 페이지 : 레시피 상세 페이지
   
 #### 4. RecipeCommentView API
- - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>
+ - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>/comment
    - 레시피 댓글 조회 기능
    - recipe_id로 DB필터하여 댓글리스트 반환
    - 그냥 댓글일경우 parent_comment_id에 None값을 넣고 저장.
-   - tag의 경우 질문과 일반 밖에 없어 boolen field로 
-  
-  
+   - tag의 경우 질문과 일반 밖에 없어 boolen field로 처리
+   - 사용 페이지 : 레시피 상세 페이지
+ - EndPoint 02 :  POST method /recipe/detail/<int:recipe_id>/comment
+   - 레시피 댓글 등록 기능
+   - 저장되는 데이터는 text 데이터 뿐이여서 request.body를 통해 데이터 전달.
+   - 이 엔드포인트로 들어온 댓글은 대댓글이 아니므로 DB에 저장할때 parent_comment_id는 None값으로 저장
+   - 사용 페이지 : 레시피 상세 페이지
+ - EndPoint 03 :  DELETE method /recipe/detail/<int:recipe_id>/comment/<int:comment_id>
+   - 레시피 댓글 삭제 기능
+   - 패스파라메터로 들어온 id값으로 데이터 조회 후 삭제 기능
+   - 사용 페이지 : 레시피 상세페이지
+ 
+#### 5. ReCommentView API
+ - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>/recomment/<int:comment_id>
+   - 레시피 대댓글 조회기능
+   - 각 레시피 댓글의 귀속되어있는 대댓글을 조회하는 기능.
+   - 패스파라메터에서 정보를 얻어 DB조회하여 결과값 반환.
+   - 사용 페이지 : 레시피 상세페이지
+ 
+ - EndPoint 02 :  POST method /recipe/detail/<int:recipe_id>/recomment/<int:commnet_id>
+   - 레시피 대댓글 등록 기능
+   - 레시피 댓글 등록 기능과 동일하지만 다른것은 tag값이 없는것과, parent_comment_id값이 패스파라메터에서 받는 comment_id값을 저장하여 어떤 댓글의 대댓글인지 확인
+   - 사용 페이지 : 레시피 상세페이지
+ 
+#### 6. RecipeSimiltude API
+ - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>/similtude
+  - 관련 레시피 추천 기능
+  - 현재 보고있는 레시피의 본문에 있는 텍스트들중 명사들을 추출하여 빈도순으로 정렬하여 많이나온 순서대로 전체 레시피에서 검색하여 관련도순으로 정렬하여 반환.
+  - 문자 추출기능은 Knolpy라이브러리 사용하였으며 명사를 추출하는 기능은 Knolpy라이브러리의 Twitter클래스를 활용
+  - 사용 페이지 : 레시피 상세페이지
+ 
+#### 7. RecipeLikevie API/ RecipeCommentLike API
+ - 레시피 좋아요 기능/ 레시피 댓글 좋아요 기능
+ - 각 엔드포인트의 패스파라미터와 로그인데코레이터의 유저아이디로 각 대상과 like의 중간테이블을 만들어 기록, 저장할때 like의 값에 user_id가 1개씩만 가능하도록 구현
+ - 좋아요 취소기능은 삭제기능을 통해 구현
+ - 사용페이지 : 레시피 상세페이지
+ 
+ 
+#### 8. 이외의 기능
+  - UserBestList : 레시피 업로드 상위 유저 리스트 API
+  - UserInfo : 유저 상세 정보 API
+  - UserRecipeWrite : 유저가 작성한 레시피 리스트 API
+  - UserRe퍋ㅈWrite : 유저가 작성한 후기 리스트 API
+  - ProductList : 레시피등록시 레시피에 사용한 마켓컬리 제품 목록 검색을 위한 상품리스트 API  
 
 
 
