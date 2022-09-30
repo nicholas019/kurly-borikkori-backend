@@ -38,7 +38,7 @@
 ## 🌼 기술 🌼
 **Front-End** : JavaScript, React.js, Next.js, Styled-compontents, axios
 <br/>
-**Back-End** : Python, Django web framework, MySQL, AWS S3/RDS, Knolpy
+**Back-End** : Python, Django web framework, MySQL, AWS S3/RDS, KoNLPy
 <br/>
 **Common** : Git-Hub, slack, trello
 
@@ -149,7 +149,7 @@
  - EndPoint 01 :  GET method /recipe/detail/<int:recipe_id>/similtude
   - 관련 레시피 추천 기능
   - 현재 보고있는 레시피의 본문에 있는 텍스트들중 명사들을 추출하여 빈도순으로 정렬하여 많이나온 순서대로 전체 레시피에서 검색하여 관련도순으로 정렬하여 반환.
-  - 문자 추출기능은 Knolpy라이브러리 사용하였으며 명사를 추출하는 기능은 Knolpy라이브러리의 Twitter클래스를 활용
+  - 문자 추출기능은 KoNLPy라이브러리 사용하였으며 명사를 추출하는 기능은 KoNLPy라이브러리의 Okt(Twitter) 형태소 분석기능 활용
   - 사용 페이지 : 레시피 상세페이지
  
 #### 7. RecipeLikevie API/ RecipeCommentLike API
